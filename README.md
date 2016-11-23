@@ -9,7 +9,7 @@ Each laboratory needs to include the following files as a minimum to be deployed
 2. A *README.md* Markdown file with the description of the laboratory. You can find a description of the Markdown syntax [here](https://guides.github.com/features/mastering-markdown/).
 3. A *Word* file with the description of the laboratory.
 4. A *PDF* file with the description of the laboratory. 
-5. Any other supporting documents, file, source code, etc.
+5. Any other supporting documents, file, source code, etc..
 
 
 ## Content
