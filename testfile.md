@@ -48,7 +48,6 @@ eclipse-java-neon-1a-linux-gtk-x86\_64.tar.gz
 
 * In Azure portal, navigate to specific Resource Group (RG) you have created as a part of the deployment process, e.g. **rg-rci-mongodb-demo-20161124**
 <img src="img/media/image3.png" width="623" height="353" />
-
 As a part of this resource group, your DocumentDB instance should be deployed and visible in the overview section.
 
 * By click4 on the DB instance in the RG **Overview** section, you open the DB instance ribbon, which gives you access to various DB PaaS options. Click on **Connection string** in order to open the form with connection parameters. Make sure you note all of them down for this demo purposes.
@@ -309,4 +308,8 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+<<<<<<< HEAD
 SOFTWARE.
+=======
+SOFTWARE.
+>>>>>>> branch 'development' of https://github.com/Microsoft-OpenSource-Labs/azure-mongodb-javaapp-demo.git
