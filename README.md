@@ -8,6 +8,8 @@ The lab consists of:
 * Installing mongodb-org-shell package to Linux VM
 * Accessing Azure DocumentDB using mongo shell command line client
 * Optional part: Running a Java App with MongoDB driver connecting to Azure DocumentDB using MongoDB API
+![Lab setup overview](img/media/image24.png)
+
 
 ## Pre-Requisites
 * Access to Azure Portal with a right to deploy and use Azure services
@@ -39,7 +41,7 @@ eclipse-java-neon-1a-linux-gtk-x86\_64.tar.gz
 ```
 ## Laboratory section(s) ##
 
-### DocumentDB PaaS service deployment using Azure Portal ###
+### Step 1 - DocumentDB PaaS service deployment using Azure Portal ###
 * Provision Database as a service for MongoDB (preview) in Azure Portal
 ![](img/media/image1.png)
 
@@ -54,7 +56,7 @@ As a part of this resource group, your DocumentDB instance should be deployed an
 * By click4 on the DB instance in the RG **Overview** section, you open the DB instance ribbon, which gives you access to various DB PaaS options. Click on **Connection string** in order to open the form with connection parameters. Make sure you note all of them down for this demo purposes.
 ![](img/media/image4.png)
 
-### VM deployment with MongoDB client using Azure Portal
+### Step 2 - VM deployment with MongoDB client using Azure Portal
 * From Azure Marketplace, deploy VM image by Canonical with Ubuntu 16.04 LTS Linux. There will be later installed mongo shell command line client which will be used in this demo.
 ![](img/media/image5.png)
 
@@ -74,7 +76,7 @@ As a part of this resource group, your DocumentDB instance should be deployed an
 ![](img/media/image10.png)
 
 
-### Working to DocumentDB using Mongo command line client
+### Step 4 - Working with DocumentDB using Mongo command line client
 
 * This section assumes:
  * You have successfully deployed DocumentDB with MongoDB protocol interface support as explained in the previous section
@@ -231,7 +233,7 @@ WriteResult({ "nRemoved" : 1 })
 ```
 And that's the final step of the basic lab part. If you have suitable Java environment as defined in Pre-Requisites section, you can proceed with the optional part.
 
-### Optional part: Running Java App with MongoDB driver against Azure DocumentDB instance
+### Step 3 - Optional part: Running Java App with MongoDB driver against Azure DocumentDB instance
 
 This is part is considered to be advanced and requires some knowledge of Eclipse IDE, Java Application development and basic knowledge how to use GitHub repository.
 
