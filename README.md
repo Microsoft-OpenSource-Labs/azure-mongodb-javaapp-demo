@@ -76,7 +76,7 @@ As a part of this resource group, your DocumentDB instance should be deployed an
 ![](img/media/image10.png)
 
 
-### Step 4 - Working with DocumentDB using Mongo command line client
+### Step 3 - Working with DocumentDB using Mongo command line client
 
 * This section assumes:
  * You have successfully deployed DocumentDB with MongoDB protocol interface support as explained in the previous section
@@ -233,7 +233,7 @@ WriteResult({ "nRemoved" : 1 })
 ```
 And that's the final step of the basic lab part. If you have suitable Java environment as defined in Pre-Requisites section, you can proceed with the optional part.
 
-### Step 3 - Optional part: Running Java App with MongoDB driver against Azure DocumentDB instance
+### Step 4 - Optional part: Running Java App with MongoDB driver against Azure DocumentDB instance
 
 This is part is considered to be advanced and requires some knowledge of Eclipse IDE, Java Application development and basic knowledge how to use GitHub repository.
 
