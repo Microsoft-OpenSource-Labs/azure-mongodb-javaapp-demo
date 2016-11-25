@@ -41,41 +41,37 @@ eclipse-java-neon-1a-linux-gtk-x86\_64.tar.gz
 
 ### DocumentDB PaaS service deployment using Azure Portal ###
 * Provision Database as a service for MongoDB (preview) in Azure Portal
-<img src="img/media/image1.png" width="623" height="353" />
+![](img/media/image1.png)
 
 * Complete the provisioning process as suggested in the screenshot below. Make sure you use unique ID for your DocumentDB instance. DB deployment starts upon click on CREATE button
-<img src="img/media/image2.png" width="623" height="353" />
+![](img/media/image2.png)
 
 * In Azure portal, navigate to specific Resource Group (RG) you have created as a part of the deployment process, e.g. **rg-rci-mongodb-demo-20161124**
-<img src="img/media/image3.png" width="623" height="353" />
+![](img/media/image3.png)
 
 As a part of this resource group, your DocumentDB instance should be deployed and visible in the overview section.
 
 * By click4 on the DB instance in the RG **Overview** section, you open the DB instance ribbon, which gives you access to various DB PaaS options. Click on **Connection string** in order to open the form with connection parameters. Make sure you note all of them down for this demo purposes.
-<img src="img/media/image4.png" width="623" height="353" />
+![](img/media/image4.png)
 
 ### VM deployment with MongoDB client using Azure Portal
 * From Azure Marketplace, deploy VM image by Canonical with Ubuntu 16.04 LTS Linux. There will be later installed mongo shell command line client which will be used in this demo.
-<img src="img/media/image5.png" width="623" height="353" />
+![](img/media/image5.png)
 
 * Deploy VM image to your subscription with.
-<img src="img/media/image6.png" width="624" height="770" />
+![](img/media/image6.png)
 
 * Select the desired size of the VM image. Recommended VM Size is D1.
-
-<img src="img/media/image7.png" width="624" height="558" />
+![](img/media/image7.png)
 
 * Keep most settings to default for sake of simplicity
-
-<img src="img/media/image8.png" width="624" height="759" />
+![](img/media/image8.png)
 
 * Check the deployment in the Summary step and confirm 
-
-<img src="img/media/image9.png" width="624" height="552" />
+![](img/media/image9.png)
 
 * Once VM with MongoDB app is deployed you may SSH to it using username and password you have provided in during provisioning process. IP address can be obtained from VM ribbon, **Overview** section upon deployment completion.
-
-<img src="img/media/image10.png" width="623" height="434" />
+![](img/media/image10.png)
 
 
 ### Working to DocumentDB using Mongo command line client
