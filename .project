@@ -20,11 +20,4 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>opensshKey_centos72rci</name>
-			<type>1</type>
-			<location>/home/radim/opensshKey_centos72rci</location>
-		</link>
-	</linkedResources>
 </projectDescription>
