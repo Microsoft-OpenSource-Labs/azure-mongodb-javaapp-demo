@@ -21,7 +21,7 @@ import com.mongodb.client.MongoDatabase;
 
 public class App {
 
-	static final String mongoURI = "mongodb://providedbyDocumentDBAzureConnecionString";
+	static final String mongoURI = "mongodb://rci-mongodb-demo-20161129:UhivrZpVhzWtE624p2abh49qMZmYgzx4epHMFxrtmsNOWE71CZmw63MaXziJkPi4Q4Wa4h6jd9oRmcjcWO8Mbg==@rci-mongodb-demo-20161129.documents.azure.com:10250/?ssl=true";
 	public static void main(String[] args) {
 		mongoOldMethods();
 		mongoTestNewMethods();
