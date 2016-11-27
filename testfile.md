@@ -1,42 +1,26 @@
-Overview
---------
-
+##Overview
 This lab demonstrates Azure DocumentDB protocol support for MongoDB, which allows very easy migration of application using MongoDB to Azure DocumentDB. DocumentDB is powerful Azure PaaS NoSQL which offers some advantages compared with MongoDB.
-
 See more <https://azure.microsoft.com/en-us/services/documentdb/>
 
 The lab consists of:
+* Spinning up DocumentDB PaaS service with MongoDB support, which is currently in Public Preview
+* Deploying Linux Ubuntu VM
+* Installing mongodb-org-shell package to Linux VM
+* Accessing Azure DocumentDB using mongo shell command line client
+* Optional part: Running a Java App with MongoDB driver connecting to Azure DocumentDB using MongoDB API
 
--   Spinning up DocumentDB PaaS service with MongoDB support, which is currently in Public Preview
-
--   Deploying Linux Ubuntu VM
-
--   Installing mongodb-org-shell package to Linux VM
-
--   Accessing Azure DocumentDB using mongo shell command line client
-
--   Optional part: Running a Java App with MongoDB driver connecting to Azure DocumentDB using MongoDB API
-
-Pre-Requisites
---------------
-
--   Access to Azure Portal with a right to deploy and use Azure services
-
-For optional part (Java Application with MongoDB driver), you need Java Development Environment with following or similar components installed
-
--   OS running CentOS Linux release 7.2.1511 (Core) or similar
-
--   Java JDK
-
+##Pre-Requisites
+* Access to Azure Portal with a right to deploy and use Azure services
+* For optional part (Java Application with MongoDB driver), you need Java Development Environment with following or similar components installed
+ * Java JDK
+ * OS running CentOS Linux release 7.2.1511 (Core) or similar
 	[radim@localhost mongodb-rci]$ java -version
 	openjdk version "1.8.0_102"
-	OpenJDK Runtime Environment (build 1.8.0_102-b14)
+	openJDK Runtime Environment (build 1.8.0_102-b14)
 	OpenJDK 64-Bit Server VM (build 25.102-b14, mixed mode)
-
-
--   Maven for Java project management
-
-
+	
+ * Maven for Java project management
+ 
 	[radim@localhost mongodb-rci\]$ mvn --version
 	Apache Maven 3.0.5 (Red Hat 3.0.5-16)
 	Maven home: /usr/share/maven                                                  
@@ -45,17 +29,15 @@ For optional part (Java Application with MongoDB driver), you need Java Developm
 	Default locale: en\_US, platform encoding: UTF-8
 	OS name: "linux", version: "3.10.0-327.36.1.el7.x86\_64", arch: "amd64", family: "unix"
 	[radim@localhost mongodb-rci\]$
-
-
--   Eclipse IDE for Java Developers, e.g. Neon.1a (4.6.1)
-
+* Eclipse IDE for Java Developers, e.g. Neon.1a (4.6.1)
+	
 	[radim@localhost Downloads\]$ ls ec\*
 	eclipse-java-neon-1a-linux-gtk-x86\_64.tar.gz
 	[radim@localhost Downloads\]$
 
 ##Laboratory section(s)
 
-### DocumentDB PaaS service deployment using Azure Portal
+###DocumentDB PaaS service deployment using Azure Portal
 
 - Provision Database as a service for MongoDB (preview) in Azure Portal
 
@@ -104,13 +86,11 @@ As a part of this resource group, your DocumentDB instance should be deployed an
 
 ### Working to DocumentDB using Mongo command line client
 
-This section assumes:
+* This section assumes:
+ * You have successfully deployed DocumentDB with MongoDB protocol interface support as explained in the previous section
+ * You have successfully deployed Linux VM Ubuntu 16.04 LTS by Canonical and you can SSH to this VM
 
-   - You have successfully deployed DocumentDB with MongoDB protocol interface support as explained in the previous section
-   - You have successfully deployed Linux VM Ubuntu 16.04 LTS by Canonical and you can SSH to this VM
-
-
-- SSH to your Ubuntu VM and run following commands in order to enable MongoDB package repository which will allow us MongoDB binaries. In th efinal step you deploy mongo shell command line.
+* Next, SSH to your Ubuntu VM and run following commands in order to enable MongoDB package repository which will allow us MongoDB binaries. In th efinal step you deploy mongo shell command line.
 
 	$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
 	$ echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/testing multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
@@ -118,7 +98,7 @@ This section assumes:
 	$ sudo apt-get install -y mongodb-org-shell
 
 
-The whole procedure should generate following output
+The whole procedure should generate following output:
 
 	[radim@localhost Downloads]$ ssh radim@13.93.124.224
 	The authenticity of host '13.93.124.224 (13.93.124.224)' can't be established.
@@ -186,11 +166,7 @@ The whole procedure should generate following output
 	Processing triggers for man-db (2.7.5-1) ...
 	Setting up mongodb-org-shell (3.4.0~rc5) ...
 	radim@20161124-vm-mongodbclient:~$
-
-
-
-
-2.  Launch mongo command line client in your Linux VM and provide it with your DocumentDB instance connection parameters. Those have been captured in the previous section when deploying DocumentDB instance.
+* In order to proceed, launch mongo command line client in your Linux VM and provide it with your DocumentDB instance connection parameters. Those have been captured in the previous section when deploying DocumentDB instance. It should look similar to this:
 
 	radim@20161124-vm-mongodbclient:~$ mongo --host rci-mongodb-demo-20161124.documents.azure.com --port 10250 -u rci-mongodb-demo-20161124 --ssl -p
 	MongoDB shell version v3.4.0-rc5
@@ -205,8 +181,7 @@ The whole procedure should generate following output
 	Questions? Try the support group
 	        http://groups.google.com/group/mongodb-user
 	>
-
-3.  Let's insert and inspect some data in your DocumentDB like it was any other MongoDB using mongo command line shell:
+* Let's insert and inspect some data in your DocumentDB like it was any other MongoDB using mongo command line shell:
 
 	radim@20161124-vm-mongodbclient:~$ mongo --host rci-mongodb-demo-20161124.documents.azure.com --port 10250 -u rci-mongodb-demo-20161124 --ssl -p
 	MongoDB shell version v3.4.0-rc5
@@ -258,71 +233,42 @@ The whole procedure should generate following output
 	{ "_id" : "00001", "firstname" : "Serena", "lastname" : "Williams", "ATPrank" : "2", "birtdate" : "26/09/1981" }
 	{ "_id" : "00002", "firstname" : "Novak", "lastname" : "Djokovic", "ATPrank" : "1", "birtdate" : "22/5/1987" }
 	>
+   
 
-
-
-    
-
-### Optional part: Running Java App with MongoDB driver against Azure DocumentDB instance
+###Optional part: Running Java App with MongoDB driver against Azure DocumentDB instance
 
 This is part is considered to be advanced and requires some knowledge of Eclipse IDE, Java Application development and basic knowledge how to use GitHub repository.
+* In your local Java Application Development environment as specified in the Pre-Requisites chapter, use the Eclipse Import Project to fetch the project sources from GitHub repository <https://github.com/Microsoft-OpenSource-Labs/azure-mongodb-javaapp-demo.git> . Start with menu File  Import and proceed further.
+<img src="img/media/image11.png" width="624" height="394" />
+<img src="img/media/image12.png" width="493" height="591" />
+<img src="img/media/image13.png" width="484" height="583" />
+<img src="img/media/image14.png" width="502" height="594" />
+<img src="img/media/image15.png" width="490" height="586" />
+<img src="img/media/image16.png" width="499" height="616" />
+<img src="img/media/image17.png" width="486" height="582" />
+<img src="img/media/image18.png" width="624" height="389" />
+* Adjust the App.java source code by inserting the proper connection string to ***mongoURI*** string final object in App.java class. The connection string can be obtained from Azured DocumentDB instance Connection String section.
+<img src="img/media/image19.png" width="624" height="562" />
+* In Eclipse, run App.java class in order test the code.
 
-1.  In your local Java Application Development environment as specified in the Pre-Requisites chapter, use the Eclipse Import Project to fetch the project sources from GitHub repository <https://github.com/Microsoft-OpenSource-Labs/azure-mongodb-javaapp-demo.git> . Start with menu File  Import and proceed further.
+##Conclusion
+* This lab demonstrated simple use of Azure DocumentDB with MongoDB protocol support, which allows to use MongoDB API towards Azure PaaS NoSQL DocumentDB database like it was true MongoDB. We have deployed Azure PaaS NoSQL DocumentDB database and then Linux Ubuntu VM to run mongo command line shell which acted as DB client.
+* In the optional part, simple Java application connects to Azure DocumentDB using standard mongodb driver and executes basic database operations.
 
-    <img src="img/media/image11.png" width="624" height="394" />
 
-    <img src="img/media/image12.png" width="493" height="591" />
-
-    <img src="img/media/image13.png" width="484" height="583" />
-
-    <img src="img/media/image14.png" width="502" height="594" />
-
-    <img src="img/media/image15.png" width="490" height="586" />
-
-    <img src="img/media/image16.png" width="499" height="616" />
-
-    <img src="img/media/image17.png" width="486" height="582" />
-
-    <img src="img/media/image18.png" width="624" height="389" />
-
-2.  Adjust the App.java source code by inserting the proper connection string to ***mongoURI*** string final object in App.java class. The connection string can be obtained from Azured DocumentDB instance Connection String section.
-
-    <img src="img/media/image19.png" width="624" height="562" />
-
-3.  In Eclipse, run App.java class in order test the code.
-
-Conclusion
-----------
-
-> This lab demonstrated simple use of Azure DocumentDB with MongoDB protocol support, which allows to use MongoDB API towards Azure PaaS NoSQL DocumentDB database like it was true MongoDB. We have deployed Azure PaaS NoSQL DocumentDB database and then Linux Ubuntu VM to run mongo command line shell which acted as DB client.
->
-> In the optional part, simple Java application connects to Azure DocumentDB using standard mongodb driver and executes basic database operations.
-
-End your Lab
-------------
-
-> Once this lab is completed, please make sure you delete all resources which are used to host you Linux VM and PaaS DB service in order to avoid unnecessary service charges.
->
-> The easiest way to accomplish this is by removal of all resource groups which were created during provisioning process in order to keep the associated resources.
->
-> In case of VM, please remove the entire Resource Group you have created for it, e.g. **rg-20161124-vm-mongodbclient**
-
+##End your Lab
+* Once this lab is completed, please make sure you delete all resources which are used to host you Linux VM and PaaS DB service in order to avoid unnecessary service charges.
+* The easiest way to accomplish this is by removal of all resource groups which were created during provisioning process in order to keep the associated resources.
+* In case of VM, please remove the entire Resource Group you have created for it, e.g. **rg-20161124-vm-mongodbclient**
 <img src="img/media/image20.png" width="622" height="353" />
-
 <img src="img/media/image21.png" width="622" height="353" />
-
-> In case of Azure DocumentDB PaaS service, proceed as following in order to delete the associated Resource Group, e.g. **rg-rci-mongodb-demo-20161124**, which was created during DB provisioning process.
-
+* In case of Azure DocumentDB PaaS service, proceed as following in order to delete the associated Resource Group, e.g. **rg-rci-mongodb-demo-20161124**, which was created during DB provisioning process.
 <img src="img/media/image22.png" width="623" height="415" />
-
 <img src="img/media/image23.png" width="623" height="356" />
+* For optional part of the lab, Java Application connecting to DocumentDB, please remove and delete the project repository from your local workspace if needed.
 
-For optional part of the lab, Java Application connecting to DocumentDB, please remove and delete the project repository from your local workspace if needed.
 
-
-Additional Resources and References
------------------------------------
-
+##Additional Resources and References
 
 <https://azure.microsoft.com/en-us/services/documentdb/>
 
@@ -330,9 +276,7 @@ Additional Resources and References
 
 <http://www.w3resource.com/mongodb/shell-methods/>
 
-
-
-### License
+###License
 
 MIT License
 
