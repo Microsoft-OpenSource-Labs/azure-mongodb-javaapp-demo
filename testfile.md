@@ -37,36 +37,27 @@ OS name: "linux", version: "3.10.0-327.36.1.el7.x86\_64", arch: "amd64", family:
 eclipse-java-neon-1a-linux-gtk-x86\_64.tar.gz
 [radim@localhost Downloads\]$
 ```
-## Laboratory section(s)
+## Laboratory section(s) ##
 
-### DocumentDB PaaS service deployment using Azure Portal
-
-- Provision Database as a service for MongoDB (preview) in Azure Portal
-
+### DocumentDB PaaS service deployment using Azure Portal ###
+* Provision Database as a service for MongoDB (preview) in Azure Portal
 <img src="img/media/image1.png" width="623" height="353" />
 
-- Complete the provisioning process as suggested in the screenshot below. Make sure you use unique ID for your DocumentDB instance. DB deployment starts upon click on CREATE button
-
+* Complete the provisioning process as suggested in the screenshot below. Make sure you use unique ID for your DocumentDB instance. DB deployment starts upon click on CREATE button
 <img src="img/media/image2.png" width="623" height="353" />
 
-- In Azure portal, navigate to specific Resource Group (RG) you have created as a part of the deployment process, e.g. **rg-rci-mongodb-demo-20161124**
-
+* In Azure portal, navigate to specific Resource Group (RG) you have created as a part of the deployment process, e.g. **rg-rci-mongodb-demo-20161124**
 <img src="img/media/image3.png" width="623" height="353" />
-
 As a part of this resource group, your DocumentDB instance should be deployed and visible in the overview section.
 
-- By click4 on the DB instance in the RG **Overview** section, you open the DB instance ribbon, which gives you access to various DB PaaS options. Click on **Connection string** in order to open the form with connection parameters. Make sure you note all of them down for this demo purposes.
-
+* By click4 on the DB instance in the RG **Overview** section, you open the DB instance ribbon, which gives you access to various DB PaaS options. Click on **Connection string** in order to open the form with connection parameters. Make sure you note all of them down for this demo purposes.
 <img src="img/media/image4.png" width="623" height="353" />
 
 ### VM deployment with MongoDB client using Azure Portal
-
 * From Azure Marketplace, deploy VM image by Canonical with Ubuntu 16.04 LTS Linux. There will be later installed mongo shell command line client which will be used in this demo.
-
 <img src="img/media/image5.png" width="623" height="353" />
 
 * Deploy VM image to your subscription with.
-
 <img src="img/media/image6.png" width="624" height="770" />
 
 * Select the desired size of the VM image. Recommended VM Size is D1.
@@ -240,7 +231,7 @@ WriteResult({ "nRemoved" : 1 })
 { "_id" : "00001", "firstname" : "Serena", "lastname" : "Williams", "ATPrank" : "2", "birtdate" : "26/09/1981" }
 { "_id" : "00002", "firstname" : "Novak", "lastname" : "Djokovic", "ATPrank" : "1", "birtdate" : "22/5/1987" }
 >
-````
+```
 And that's the final step of the basic lab part. If you have suitable Java environment as defined in Pre-Requisites section, you can proceed with the optional part.
 
 ### Optional part: Running Java App with MongoDB driver against Azure DocumentDB instance
@@ -280,12 +271,12 @@ This is part is considered to be advanced and requires some knowledge of Eclipse
 * The easiest way to accomplish this is by removal of all resource groups which were created during provisioning process in order to keep the associated resources.
 * In case of VM, please remove the entire Resource Group you have created for it, e.g. **rg-20161124-vm-mongodbclient**
 <img src="img/media/image20.png" width="622" height="353" />
-You need to click on RG Delete operation and confirm the RG name.
+*.You need to click on RG Delete operation and confirm the RG name.
 <img src="img/media/image21.png" width="622" height="353" />
 
 * In case of Azure DocumentDB PaaS service, proceed as following in order to delete the associated Resource Group, e.g. **rg-rci-mongodb-demo-20161124**, which was created during DB provisioning process.
 ![](img/media/image22.png)
-Again, you need to click on RG Delete operation and confirm the RG name.
+*.Again, you need to click on RG Delete operation and confirm the RG name.
 ![](img/media/image23.png)
 
 * For optional part of the lab, Java Application connecting to DocumentDB, please remove and delete the project repository from your local workspace if needed.
