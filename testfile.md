@@ -241,7 +241,7 @@ WriteResult({ "nRemoved" : 1 })
 { "_id" : "00002", "firstname" : "Novak", "lastname" : "Djokovic", "ATPrank" : "1", "birtdate" : "22/5/1987" }
 >
 ````
-And that's the final step of the basic part.
+And that's the final step of the basic lab part. If you have suitable Java environment as defined in Pre-Requisites section, you can proceed with the optional part.
 
 ### Optional part: Running Java App with MongoDB driver against Azure DocumentDB instance
 
@@ -251,32 +251,24 @@ This is part is considered to be advanced and requires some knowledge of Eclipse
 
 * Start with menu File  Import and proceed further.
 ![](img/media/image11.png)
-
 * Import project by cloning existing repository. You will specify project URI later.
 ![](img/media/image12.png)
-
 * Enter the URI of this repository and provide connection and authentication params.
 ![](img/media/image13.png)
-
 * Clone just a master branch of the repository.
 ![](img/media/image14.png)
-
 * Select the path for the local repository clone.
 ![](img/media/image15.png)
-
 * Select to import the project which was detected in the remote repository.
 ![](img/media/image16.png)
-
 * Import the project as existing Eclipse project.
 ![](img/media/image17.png)
-
 * Open the App.java source code from the project workspace.
 ![](img/media/image18.png)
-
 * Adjust the App.java source code by inserting the proper connection string to ***mongoURI*** string final object in App.java class. The connection string can be obtained from Azured DocumentDB instance Connection String section.
 ![](img/media/image19.png)
-
 * In Eclipse, run App.java class in order test the code to see the result in the console output.
+
 
 ## Conclusion
 * This lab demonstrated simple use of Azure DocumentDB with MongoDB protocol support, which allows to use MongoDB API towards Azure PaaS NoSQL DocumentDB database like it was true MongoDB. We have deployed Azure PaaS NoSQL DocumentDB database and then Linux Ubuntu VM to run mongo command line shell which acted as DB client.
@@ -288,7 +280,6 @@ This is part is considered to be advanced and requires some knowledge of Eclipse
 * The easiest way to accomplish this is by removal of all resource groups which were created during provisioning process in order to keep the associated resources.
 * In case of VM, please remove the entire Resource Group you have created for it, e.g. **rg-20161124-vm-mongodbclient**
 <img src="img/media/image20.png" width="622" height="353" />
-
 You need to click on RG Delete operation and confirm the RG name.
 <img src="img/media/image21.png" width="622" height="353" />
 
