@@ -4,6 +4,8 @@ package com.microsoft.rci;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.bson.Document;
 import org.codehaus.jackson.JsonGenerationException;
@@ -19,17 +21,21 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 
+
 public class App {
 
-	static final String mongoURI = "mongodb://rci-mongodb-demo-20161129:UhivrZpVhzWtE624p2abh49qMZmYgzx4epHMFxrtmsNOWE71CZmw63MaXziJkPi4Q4Wa4h6jd9oRmcjcWO8Mbg==@rci-mongodb-demo-20161129.documents.azure.com:10250/?ssl=true";
+	static final String mongoURI = "mongodb://mongodbrci20170123:8qjOoHWFpU7Bc4DcmeWryPiDLhjishtsngVal4OezZjKAmF28itYt4GbWJrWPcguzAqjrrah9aNYnvS8szMyHA==@mongodbrci20170123.documents.azure.com:10250/?ssl=true";
+
 	public static void main(String[] args) {
+		System.out.println("*** Program start ***" );
 		mongoOldMethods();
 		mongoTestNewMethods();
+		System.out.println("*** Program end ***" );
 	}
 
 	public static void mongoOldMethods() {
 
-		//MongoClient mongoClient = new MongoClient("localhost", 27017);
+		setLogging();	
 		MongoClientURI uri = new MongoClientURI(mongoURI);	
 		MongoClient mongoClient = new MongoClient(uri);
 
@@ -67,12 +73,16 @@ public class App {
 		}
 	}
 
-	public static void mongoTestNewMethods() {    
+	public static void mongoTestNewMethods() {   
+		
+		setLogging();	
 
 		MongoClientURI uri = new MongoClientURI(mongoURI);	
 		MongoClient mongoClient = new MongoClient(uri);
 
 		//MongoClient mongoClient = new MongoClient("localhost", 27017);
+
+
 
 		try {
 			System.out.println(
@@ -109,6 +119,11 @@ public class App {
 		} finally {
 			mongoClient.close();
 		}
+	}
+
+	private static void setLogging() {
+		Logger mongoLogger = Logger.getLogger( "org.mongodb.driver" );
+		mongoLogger.setLevel(Level.SEVERE);
 	}
 
 	public static void showAllDocuments( 
